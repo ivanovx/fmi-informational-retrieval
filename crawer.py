@@ -17,4 +17,6 @@ class MovieSpider(scrapy.Spider):
                 'title': title.css('::text').get()
             }
 
-            yield movies.insert_one(movie)
+            movies.insert_one(movie)
+
+            yield movie
