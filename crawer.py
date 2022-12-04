@@ -2,11 +2,6 @@ import requests
 import scrapy
 import pymongo
 from bs4 import BeautifulSoup
-from random import seed
-from scrapy import Request, Selector
-import re
-from urllib import request
-from urllib.request import Request, urlopen
 
 MONGO_CLIENT = pymongo.MongoClient("mongodb://localhost:27017/")
 
