@@ -1,7 +1,7 @@
 from elasticsearch import Elasticsearch
 
-ELASTIC_PASSWORD = 'UAabsRHsqcNsD9bOhfUf'
-ELASTIC_FINGERPRINT = '1c48be5c1b0c444dcf55a337492ce18f7adced5c678c91f020da8461658c6217'
+ELASTIC_PASSWORD = 'RRfdxagvI1HKL9l+5Pd1'
+ELASTIC_FINGERPRINT = '34752822c2815921bc7f159894d82546ad4e076b0da60561a2269d018061f703'
 
 es = Elasticsearch(
     "https://localhost:9200",
@@ -12,5 +12,4 @@ es = Elasticsearch(
     )
 )
 
-def insert_movie(movie):
-    pass
+print(es.info())
