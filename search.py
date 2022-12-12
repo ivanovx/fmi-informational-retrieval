@@ -12,4 +12,5 @@ es = Elasticsearch(
     )
 )
 
-print(es.info())
+def insert_movie(movie):
+    pass

@@ -1,18 +1,5 @@
 import scrapy
-
 from datetime import datetime
-from elasticsearch import Elasticsearch
-
-ELASTIC_PASSWORD = "UAabsRHsqcNsD9bOhfUf"
-
-CERT_FINGERPRINT = "1c48be5c1b0c444dcf55a337492ce18f7adced5c678c91f020da8461658c6217"
-
-# Create the client instance
-es = Elasticsearch(
-    "https://localhost:9200",
-    ssl_assert_fingerprint=CERT_FINGERPRINT,
-    basic_auth=("elastic", ELASTIC_PASSWORD)
-)
 
 class MovieSpider(scrapy.Spider):
     name = 'imdb_top_movies'
@@ -33,7 +20,8 @@ class MovieSpider(scrapy.Spider):
             'timestamp': datetime.now(),
         }
 
-        """    TODO
+        """    
+            TODO
             CAST
             WRITERS
             TAGS
@@ -41,8 +29,7 @@ class MovieSpider(scrapy.Spider):
             Production company
             RELEASE YEAR
             genre
-            story"""
-        
-        es.index(index="movies", document=movie)
-
+            story
+        """
+    
         yield movie
