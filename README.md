@@ -1,11 +1,10 @@
-# fmi-informational-retrieval
+# Informational retrieval project
 
-Project for fmi information retrieval course 
+Project for FMI Information retrieval course
 
-## Идея за проект
+### Docs
 
-### Търсачка на филми
-
-Търсене на филм, но не само по заглавие или описание, а отговарящ на определени критерии зададени от потребителя.
-Например търсено по ключови думи от сценарии на филм с конкретни актьори и жанр, възможност за прилагане на допълнителни филтри за рейтинг, година и т.н
-
+* [Scrapy](https://docs.scrapy.org/en/latest/intro/tutorial.html)
+* [Elasticsearch Guide](https://www.elastic.co/guide/index.html)
+* [Elasticsearch Install](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html)
+* [Elasticsearch Python](https://elasticsearch-py.readthedocs.io/en/v8.5.3)
