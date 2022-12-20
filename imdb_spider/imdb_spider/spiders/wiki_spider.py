@@ -11,14 +11,16 @@ class WikiMovieSpider(Spider):
     ]
 
     def parse(self, response):
-        for movies_info in response.css('#mw-pages .mw-category .mw-category-group'):
-            for movie_page in movies_info.css('ul> li'):
+        for movies in response.css('#mw-pages .mw-category .mw-category-group'):
+            for movie_page in movies.css('ul> li'):
                 yield response.follow(movie_page.css('a::attr(href)').get(), self.movie_info)
 
     
     def movie_info(self, response):
         movie_doc = {
             'title': response.css('#firstHeading span.mw-page-title-main::text').get()
+            # here other fields
+            # ...
         }
 
         yield movie_doc
