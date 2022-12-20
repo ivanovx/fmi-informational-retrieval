@@ -1,6 +1,7 @@
 from scrapy import Spider
 from datetime import datetime
 
+"""
 from elasticsearch import Elasticsearch
 
 ELASTIC_PASSWORD = 'RRfdxagvI1HKL9l+5Pd1'
@@ -14,9 +15,23 @@ es = Elasticsearch(
         ELASTIC_PASSWORD
     )
 )
+"""
 
-class MovieSpider(Spider):
-    name = 'imdb_movies'
+"""    
+TODO
+CAST
+WRITERS
+TAGS
+Did you know
+Production company
+RELEASE YEAR
+genre
+story
+keywords
+"""
+
+class ImdbMovieSpider(Spider):
+    name = 'imdb_spider'
     start_urls = ['https://www.imdb.com/chart/top']
 
     def parse(self, response):
@@ -33,19 +48,6 @@ class MovieSpider(Spider):
             'timestamp': datetime.now(),
         }
 
-        """    
-            TODO
-            CAST
-            WRITERS
-            TAGS
-            Did you know
-            Production company
-            RELEASE YEAR
-            genre
-            story
-            keywords
-        """
-
-        print(es.index(index='movies', document=movie_doc))
+        #print(es.index(index='movies', document=movie_doc))
     
         yield movie_doc
