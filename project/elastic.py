@@ -15,6 +15,8 @@ elastic = Elasticsearch(
 
 #print(elastic.search(index="movies", query={"match_all": {}}))
 
+#print(es.index(index='movies', document=movie_doc))
+
 def search_by_title(title: str):
     return elastic.search(index='movies', query= {
         'match': {
