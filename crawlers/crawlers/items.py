@@ -8,4 +8,6 @@ from scrapy.item import Item, Field
 class Movie(Item):
     title = Field()
     description = Field()
-    actors = Field()
+    director = Field()
+    writter = Field()
+    operator = Field()

@@ -21,5 +21,8 @@ class WikiMovieSpider(Spider):
 
         movie['title'] =  response.css('#firstHeading .mw-page-title-main::text').get()
         movie['description'] =  response.css('#content #mw-content-text .mw-parser-output > p').getall()
+        movie['director'] = response.css('.mw-parser-output .infobox tbody tr:nth-of-type(2) td > a::text').get()
+        movie['writter'] = response.css('.mw-parser-output .infobox tbody tr:nth-of-type(3) td > a::text').get()
+        movie['operator'] = response.css('.mw-parser-output .infobox tbody tr:nth-of-type(6) td > a::text').get()
 
         yield movie
