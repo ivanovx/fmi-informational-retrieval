@@ -23,7 +23,7 @@ class ImdbMovieSpider(Spider):
             yield response.follow(movie_page.css('a::attr(href)').get(), self.movie_info)
 
     def movie_info(self, response):
-        movie_doc = {
+        movie = {
             'title': response.css("section.ipc-page-section > div.sc-80d4314-0 h1.sc-b73cd867-0::text").get(),
             'rating': response.css('div.ipc-button__text > div.sc-f6306ea-3 > div.sc-7ab21ed2-0 span.sc-7ab21ed2-1::text').get(),
             'intro': response.css('p.sc-16ede01-6 span.sc-16ede01-2::text').get(),
@@ -32,4 +32,4 @@ class ImdbMovieSpider(Spider):
             'timestamp': datetime.now(),
         }
     
-        yield movie_doc
+        yield movie

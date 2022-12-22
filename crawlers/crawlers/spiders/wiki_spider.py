@@ -1,5 +1,6 @@
 from scrapy import Spider
-from datetime import datetime
+
+from crawlers.items import Movie
 
 class WikiMovieSpider(Spider):
     name = 'wiki_spider'
@@ -12,15 +13,13 @@ class WikiMovieSpider(Spider):
 
     def parse(self, response):
         for movies in response.css('#mw-pages .mw-category .mw-category-group'):
-            for movie_page in movies.css('ul> li'):
+            for movie_page in movies.css('ul > li'):
                 yield response.follow(movie_page.css('a::attr(href)').get(), self.movie_info)
-
     
     def movie_info(self, response):
-        movie_doc = {
-            'title': response.css('#firstHeading span.mw-page-title-main::text').get()
-            # here other fields
-            # ...
-        }
+        movie = Movie()
 
-        yield movie_doc
+        movie['title'] =  response.css('#firstHeading .mw-page-title-main::text').get()
+        movie['description'] =  response.css('#content #mw-content-text .mw-parser-output > p').getall()
+
+        yield movie
