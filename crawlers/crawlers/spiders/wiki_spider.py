@@ -1,6 +1,21 @@
+import re
 from scrapy import Spider
 
 from crawlers.items import Movie
+
+def get_text(raw):
+    TAG_RE = re.compile(r'<[^>]+>')
+
+    return re.sub(TAG_RE, '', raw)
+
+def get_text_from_list(rawList):
+    str = ''
+
+    for raw in rawList:
+        str += get_text(raw)
+
+    return str
+        
 
 class WikiMovieSpider(Spider):
     name = 'wiki_spider'
@@ -20,7 +35,7 @@ class WikiMovieSpider(Spider):
         movie = Movie()
 
         movie['title'] =  response.css('#firstHeading .mw-page-title-main::text').get()
-        movie['description'] =  response.css('#content #mw-content-text .mw-parser-output > p').getall()
+        movie['description'] = get_text_from_list(response.css('#content #mw-content-text .mw-parser-output > p').getall())
         movie['director'] = response.css('.mw-parser-output .infobox tbody tr:nth-of-type(2) td > a::text').get()
         movie['writter'] = response.css('.mw-parser-output .infobox tbody tr:nth-of-type(3) td > a::text').get()
         movie['operator'] = response.css('.mw-parser-output .infobox tbody tr:nth-of-type(6) td > a::text').get()
