@@ -2,6 +2,15 @@
 
 Project for FMI Information retrieval course
 
+## TODO
+
+* Finish web crawlers
+* Store data from datasets in Elastic
+* Search algo with Elastic
+* Web client
+    * React - using rest api
+    * flask + js
+
 ## How run crawers
 
 ```
