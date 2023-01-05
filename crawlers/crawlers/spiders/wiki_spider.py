@@ -15,7 +15,6 @@ def get_text_from_list(rawList):
         str += get_text(raw)
 
     return str
-        
 
 class WikiMovieSpider(Spider):
     name = 'wiki_spider'
@@ -39,5 +38,8 @@ class WikiMovieSpider(Spider):
         movie['director'] = response.css('.mw-parser-output .infobox tbody tr:nth-of-type(2) td > a::text').get()
         movie['writter'] = response.css('.mw-parser-output .infobox tbody tr:nth-of-type(3) td > a::text').get()
         movie['operator'] = response.css('.mw-parser-output .infobox tbody tr:nth-of-type(6) td > a::text').get()
+
+        # TODO 
+        # Actors
 
         yield movie

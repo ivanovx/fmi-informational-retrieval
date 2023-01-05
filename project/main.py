@@ -10,3 +10,5 @@ movies = json.loads(file.read())
 for movie in movies:
     title: str = movie['title']
     description = movie['description']
+
+    es.index(index='bgmovies', document=movie)

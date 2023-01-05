@@ -9,7 +9,7 @@ elastic = Elasticsearch(
     basic_auth = ( 'elastic', ELASTIC_PASSWORD )
 )
 
-#print(es.info())
+#print(elastic.info())
 #print(elastic.indices.create(index='movies'))
 #print(es.count(index='movies'))
 
@@ -23,3 +23,5 @@ def search_by_title(title: str):
             'title': title
         }
     })
+
+print(search_by_title("star"))

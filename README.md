@@ -25,6 +25,17 @@ PS C:\Users\csynt\Desktop\fmi-informational-retrieval\imdb_spider> scrapy crawl 
 PS C:\Users\csynt\Desktop\fmi-informational-retrieval\imdb_spider> scrapy crawl imdb_spider
 ```
 
+
+* Save to json
+```
+scrapy crawl wiki_spider -o test.json
+```
+
+* Elastic as service
+```
+.\elasticsearch-service.bat install
+```
+
 ## Docs
 
 * [Scrapy](https://docs.scrapy.org/en/latest/intro/tutorial.html)
